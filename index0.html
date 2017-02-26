@@ -11,8 +11,13 @@
 
     <script type="text/javascript" src="bootstrap-3.3.5/js/bootstrap.js"></script>
     <script type="text/javascript" src="jquery/jquery-3.1.1.js"></script>
+    <script>
+      function loadUrl(url){
+        $('#body').load(url);
+      }
+    </script>
   </head>
-  <body id="">
+  <body id="body">
     <section class="page-header">
       <h1 class="project-name">Yount.GitHub.io</h1>
       <h2 class="project-tagline">website</h2>
@@ -29,7 +34,7 @@
         <table class="table">
           <tbody>
             <tr>
-              <td><a href="">Annotation</a></td>
+              <td><a href="javascript:void(0);" onclick="loadUrl('Annotation/annotational.html');">Annotation</a></td>
               <td></td>
             </tr>
 
