@@ -8,18 +8,58 @@
     <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true">
       <span aria-hidden="true" class="octicon octicon-link"></span>
     </a>
-    annotational.html
+    annotational 自定义注解
   </h3>
   <p>
-    <table class="table">
-      <tbody>
-        <tr>
-          <td><a href="">Annotation</a></td>
-          <td></td>
-        </tr>
+    元注解：生成自定义注解时使用，有@Target, @Rentention, @Documented 和 @Inherited 四个。
 
-      </tbody>
-    </table>
+@Documented
+若A_annotation被@Documented修饰过，则在生成文档时，被A_annotation修饰过的程序会出现关于A_annotation的描述信息。
+
+@Target
+用于说明自定义注解适用的范围，有以下集中参数：
+ElementType.TYPE：适用范围为类、接口（包括注解类型的接口）或enum（Class, interface (including annotation type), or enum declaration）。
+ElementType.FIELD：字段声明（包括枚举常量）（Field declaration (includes enum constants)）。
+					字段：http://blog.csdn.net/ljz2009y/article/details/8023499
+ElementType.METHOD：作用于方法（Method declaration）。
+ElementType.PARAMETER：作用于形参（Formal parameter declaration）。
+ElementType.CONSTRUCTOR：作用于构造器（Constructor declaration）。
+ElementType.LOCAL_VARIABLE：作用于局部变量（Local variable declaration）。
+ElementType.ANNOTATION_TYPE：作用于注解（Annotation type declaration）。
+ElementType.PACKAGE：作用于包名上（Package declaration）。
+ElementType.TYPE_PARAMETER：（Type parameter declaration  @since 1.8）。
+ElementType.TYPE_USE：（Use of a type  @since 1.8）。
+
+@Retention
+说明annotation注释其它程序时，起作用的范围，有以下几个参数：
+RetentionPolicy.RUNTIME：运行时注解
+	（Annotations are to be recorded in the class file by the compiler and
+	retained by the VM at run time, so they may be read reflectively.）。
+
+RetentionPolicy.SOURCE：编译结束后消失（Annotations are to be discarded by the compiler）。
+
+RetentionPolicy.CLASS：编译时注解
+	（Annotations are to be recorded in the class file by the compiler
+	but need not be retained by the VM at run time.  This is the default
+        behavior.）。
+
+@Inherited
+若A_annotation被@Inherited修饰了，则A_annotation修饰其它类时，该类的子类会自动继承该注解。
+
+获取注解
+获取类上的注解
+Class c;
+c.isAnnotationPresent(XxxAnnotation.class);
+c.getAnnotation(XxxAnnotation.class);
+获取方法上的注解
+Method m;
+m.isAnnotationPresent(XxxAnnotation.class);
+m.getAnnotation(XxxAnnotation.class);
+获取字段上的注解
+Field f;
+f.isAnnotationPresent(XxxAnnotation.class);
+f.getAnnotation(XxxAnnotation.class);
+
   </p>
 
 
